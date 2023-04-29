@@ -12,6 +12,10 @@ public class Price implements ValueObject<Price> {
         this.currency = currency;
     }
 
+    public Price reduceByPercent(int percentage) {
+        return new Price(value.subtract(value.divide(new BigDecimal(percentage))), Currency.getInstance("USD"));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
