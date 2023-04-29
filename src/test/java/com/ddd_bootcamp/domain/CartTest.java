@@ -4,20 +4,21 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CartTest {
 
     @Test
-    void shouldAddApplePencilToCart() {
+    void shouldAdd2ApplePencilToCart() {
         Cart cart = new Cart();
         Product product = new Product("Apple Pencil");
-        cart.add(product);
+        cart.add(new Item(product, 2));
 
-        List<Product> actual = cart.getProducts();
+        List<Item> actual = cart.getItems();
 
         assertEquals(1, actual.size());
-        assertEquals("Apple Pencil", actual.get(0).getName());
+        assertEquals("Apple Pencil", actual.get(0).getProduct().getName());
+        assertEquals(2, actual.get(0).getQuantity());
 
     }
 
