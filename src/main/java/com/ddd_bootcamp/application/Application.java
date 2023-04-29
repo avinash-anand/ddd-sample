@@ -8,8 +8,11 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         Cart cart = new Cart();
-        Product product = new Product("Apple Pencil");
-        cart.add(product);
+        Product applePencil = new Product("Apple Pencil");
+        cart.add(applePencil);
+
+        Product sonyHeadphone = new Product("Sony Wireless Headphone");
+        cart.add(sonyHeadphone);
 
         System.out.println("Cart = " + cart);
         List<Product> products = cart.getProducts();
