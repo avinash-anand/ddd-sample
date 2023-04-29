@@ -1,15 +1,8 @@
 package com.ddd_bootcamp.domain;
 
-public class Product {
-    private final String name;
+import java.util.Objects;
 
-    public Product(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
+public record Product(String name) {
 
     @Override
     public String toString() {
@@ -17,4 +10,13 @@ public class Product {
                 "name='" + name + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(name, product.name);
+    }
+
 }

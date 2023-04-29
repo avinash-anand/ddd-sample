@@ -17,7 +17,7 @@ class CartTest {
         List<Item> actual = cart.getItems();
 
         assertEquals(1, actual.size());
-        assertEquals("Apple Pencil", actual.get(0).getProduct().getName());
+        assertEquals("Apple Pencil", actual.get(0).getProductName());
         assertEquals(2, actual.get(0).getQuantity());
 
     }

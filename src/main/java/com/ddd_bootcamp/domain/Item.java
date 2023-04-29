@@ -10,8 +10,8 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public Product getProduct() {
-        return product;
+    public String getProductName() {
+        return product.name();
     }
 
     public int getQuantity() {
