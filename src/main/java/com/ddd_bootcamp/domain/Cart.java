@@ -18,9 +18,10 @@ public class Cart implements Entity<Cart> {
     public Cart() {
         cartId = CartId.generateCartId();
     }
+
     public void add(Item item) {
         ItemAddedToCartEvent itemAddedEvent =
-                new ItemAddedToCartEvent(item.getProductName(), item.getQuantity());
+                new ItemAddedToCartEvent(item.getProductName(), item.getQuantity(), item.getProductPrice());
 
         apply(itemAddedEvent);
     }
@@ -38,7 +39,7 @@ public class Cart implements Entity<Cart> {
 
     private void apply(ItemAddedToCartEvent event) {
         events.add(event);
-        this.items.add(new Item(new Product(event.getProductName()), event.getQuantity()));
+        this.items.add(new Item(new Product(event.getProductName(), event.getPrice()), event.getQuantity()));
     }
 
     private void apply(ItemRemovedFromCartEvent event) {

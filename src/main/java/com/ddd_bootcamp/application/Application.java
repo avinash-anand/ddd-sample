@@ -2,18 +2,21 @@ package com.ddd_bootcamp.application;
 
 import com.ddd_bootcamp.domain.Cart;
 import com.ddd_bootcamp.domain.Item;
+import com.ddd_bootcamp.domain.Price;
 import com.ddd_bootcamp.domain.Product;
 
+import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
         Cart cart1 = new Cart();
-        Product applePencil = new Product("Apple Pencil");
+        Product applePencil = new Product("Apple Pencil", new Price(BigDecimal.valueOf(10), Currency.getInstance("USD")));
         Item item1 = new Item(applePencil, 2);
         cart1.add(item1);
 
-        Product sonyHeadphone = new Product("Sony Wireless Headphone");
+        Product sonyHeadphone = new Product("Sony Wireless Headphone", new Price(BigDecimal.valueOf(10), Currency.getInstance("USD")));
         Item item2 = new Item(sonyHeadphone, 1);
         cart1.add(item2);
 
@@ -34,5 +37,11 @@ public class Application {
         System.out.println(cart1.equals(cart2)? "true=Carts are same " : "false=Carts are different");
         System.out.print("cart1.hasSameIdentityAs(cart2) :");
         System.out.println(cart1.hasSameIdentityAs(cart2)? "true=Carts are same"  : "false=Carts are different");
+
+        Price price1 = new Price(BigDecimal.valueOf(5), Currency.getInstance("USD"));
+        Price price2 = new Price(BigDecimal.valueOf(5), Currency.getInstance("USD"));
+        System.out.println("price1.equals(price2) = " + price1.equals(price2));
+        System.out.println("price1.sameValueAs(price2) = " + price1.sameValueAs(price2));
+
     }
 }

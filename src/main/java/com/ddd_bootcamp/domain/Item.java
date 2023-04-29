@@ -14,6 +14,10 @@ public class Item {
         return product.name();
     }
 
+    public Price getProductPrice() {
+        return product.price();
+    }
+
     public int getQuantity() {
         return quantity;
     }
